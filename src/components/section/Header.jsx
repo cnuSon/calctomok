@@ -1,25 +1,23 @@
 import React from 'react'
 
-import { CiBaseball } from "react-icons/ci";
-import { CiCoins1 } from "react-icons/ci";
-import { CiBoxes } from "react-icons/ci";
-import { CiBullhorn } from "react-icons/ci";
-import { CiCoffeeCup } from "react-icons/ci";
-import { CiDumbbell } from "react-icons/ci";
-import { CiFries } from "react-icons/ci";
-import { CiMoneyBill } from "react-icons/ci";
+import { GiHouse } from "react-icons/gi";
+import { BsRulers } from "react-icons/bs";
+import { GiContract } from "react-icons/gi";
+import { GiPencilRuler } from "react-icons/gi";
+import { GiWaterDrop } from "react-icons/gi";
+import { GiSuspensionBridge } from "react-icons/gi";
+import { GiFallingRocks } from "react-icons/gi";
+import { GiTeePipe } from "react-icons/gi";
 
 import { AiFillGithub } from "react-icons/ai";
-import { AiOutlineCodepen } from "react-icons/ai";
-import { AiFillYoutube } from "react-icons/ai";
-import { AiOutlineInstagram } from "react-icons/ai";
+import { AiFillMail } from "react-icons/ai";
 
 const Header = () => {
     return (
         <header id='header' role='banner'>
             <h1 className='header__logo'>
                 <a href='/'>
-                    <em aria-hidden='true'></em>
+                    <em><BsRulers /></em>
                     <span>CALCIVIL<br />by Hyun.</span>
                 </a>
             </h1>
@@ -28,42 +26,37 @@ const Header = () => {
                 <ul className='menu'>
                     <li className='active'>
                         <a href='/'>
-                            <CiBaseball /> 웹스토리보이
+                            <GiHouse /> 홈
                         </a>
                     </li>
                     <li>
                         <a href='/today'>
-                            <CiMoneyBill /> 추천 영상
+                            <GiContract /> 응용역학
                         </a>
                     </li>
                     <li>
                         <a href='/developer'>
-                            <CiCoins1 /> 추천 개발자
+                            <GiPencilRuler /> 측량학
                         </a>
                     </li>
                     <li>
                         <a href='/webd'>
-                            <CiBoxes /> 웹디자인기능사
+                            <GiWaterDrop /> 수리수문학
                         </a>
                     </li>
                     <li>
                         <a href='/website'>
-                            <CiBullhorn /> 웹표준 사이트
+                            <GiSuspensionBridge /> 철근콘크리트 및 강구조
                         </a>
                     </li>
                     <li>
                         <a href='/gsap'>
-                            <CiCoffeeCup /> GSAP Parallax
+                            <GiFallingRocks /> 토질 및 기초
                         </a>
                     </li>
                     <li>
                         <a href='/port'>
-                            <CiDumbbell /> 포트폴리오 사이트
-                        </a>
-                    </li>
-                    <li>
-                        <a href='/youtube'>
-                            <CiFries /> 유튜브 클론 사이트
+                            <GiTeePipe /> 상하수도공학
                         </a>
                     </li>
                 </ul>
@@ -107,23 +100,13 @@ const Header = () => {
             <div className='header__sns'>
                 <ul>
                     <li>
-                        <a href='https://github.com/webstoryboy' rel='noopener noreferrer'>
+                        <a href='https://github.com/cnuSon' rel='noopener noreferrer'>
                             <AiFillGithub />
                         </a>
                     </li>
                     <li>
-                        <a href='https://www.youtube.com/webstoryboy' rel='noopener noreferrer'>
-                            <AiFillYoutube />
-                        </a>
-                    </li>
-                    <li>
-                        <a href='https://codepen.io/webstoryboy' rel='noopener noreferrer'>
-                            <AiOutlineCodepen />
-                        </a>
-                    </li>
-                    <li>
-                        <a href='https://www.instagram.com/webstoryboy' rel='noopener noreferrer'>
-                            <AiOutlineInstagram />
+                        <a href='mailto:hyn_n@naver.com' rel='noopener noreferrer'>
+                            <AiFillMail />
                         </a>
                     </li>
                 </ul>
