@@ -1,0 +1,151 @@
+[
+    {
+        "id": "RCSTEEL-001",
+        "name": "콘크리트 탄성계수",
+        "description": "콘크리트의 변형 저항 능력을 나타내는 값입니다.",
+        "equations": {
+            "base": "Ec",
+            "Ec": "Ec = 15000 * sqrt(fck)"
+        },
+        "variables": [
+            { "symbol": "Ec", "description": "콘크리트 탄성계수", "unit": "MPa" },
+            { "symbol": "fck", "description": "콘크리트 설계기준압축강도", "unit": "MPa" }
+        ]
+    },
+    {
+        "id": "RCSTEEL-002",
+        "name": "탄성계수비",
+        "description": "철근과 콘크리트의 탄성계수 비율입니다.",
+        "equations": {
+            "base": "n",
+            "n": "n = Es / Ec"
+        },
+        "variables": [
+            { "symbol": "n", "description": "탄성계수비", "unit": "" },
+            { "symbol": "Es", "description": "철근의 탄성계수", "unit": "MPa" },
+            { "symbol": "Ec", "description": "콘크리트의 탄성계수", "unit": "MPa" }
+        ]
+    },
+    {
+        "id": "RCSTEEL-003",
+        "name": "등가 직사각형 깊이",
+        "description": "휨강도 계산 시 사용하는 등가 응력 블록의 깊이입니다.",
+        "equations": {
+            "base": "a",
+            "a": "a = (As*fy) / (0.85*fck*b)"
+        },
+        "variables": [
+            { "symbol": "a", "description": "등가 직사각형 깊이", "unit": "mm" },
+            { "symbol": "As", "description": "인장철근 단면적", "unit": "mm²" },
+            { "symbol": "fy", "description": "철근 항복강도", "unit": "MPa" },
+            { "symbol": "fck", "description": "콘크리트 압축강도", "unit": "MPa" },
+            { "symbol": "b", "description": "보의 폭", "unit": "mm" }
+        ]
+    },
+    {
+        "id": "RCSTEEL-004",
+        "name": "설계 휨강도 (단철근)",
+        "description": "단철근 직사각형 보의 설계 휨강도입니다.",
+        "equations": {
+            "base": "phi_Mn",
+            "phi_Mn": "phi_Mn = phi*As*fy*(d - a/2)"
+        },
+        "variables": [
+            { "symbol": "phi_Mn", "description": "설계 휨강도", "unit": "kN·m" },
+            { "symbol": "phi", "description": "강도감소계수", "unit": "" },
+            { "symbol": "As", "description": "인장철근 단면적", "unit": "mm²" },
+            { "symbol": "fy", "description": "철근 항복강도", "unit": "MPa" },
+            { "symbol": "d", "description": "유효깊이", "unit": "mm" },
+            { "symbol": "a", "description": "등가 직사각형 깊이", "unit": "mm" }
+        ]
+    },
+    {
+        "id": "RCSTEEL-005",
+        "name": "콘크리트 부담 전단강도",
+        "description": "전단철근이 없는 경우 콘크리트가 부담하는 전단강도입니다.",
+        "equations": {
+            "base": "Vc",
+            "Vc": "Vc = 0.53 * sqrt(fck) * bw * d"
+        },
+        "variables": [
+            { "symbol": "Vc", "description": "콘크리트 전단강도", "unit": "N" },
+            { "symbol": "fck", "description": "콘크리트 압축강도", "unit": "MPa" },
+            { "symbol": "bw", "description": "복부 폭", "unit": "mm" },
+            { "symbol": "d", "description": "유효깊이", "unit": "mm" }
+        ]
+    },
+    {
+        "id": "RCSTEEL-006",
+        "name": "스터럽 단면적",
+        "description": "수직 스터럽(전단철근)의 소요 단면적을 계산합니다.",
+        "equations": {
+            "base": "Av",
+            "Av": "Av = (Vs*s) / (fy*d)"
+        },
+        "variables": [
+            { "symbol": "Av", "description": "스터럽 단면적", "unit": "mm²" },
+            { "symbol": "Vs", "description": "전단철근 부담 전단력", "unit": "N" },
+            { "symbol": "s", "description": "스터럽 간격", "unit": "mm" },
+            { "symbol": "fy", "description": "스터럽 항복강도", "unit": "MPa" },
+            { "symbol": "d", "description": "유효깊이", "unit": "mm" }
+        ]
+    },
+    {
+        "id": "RCSTEEL-007",
+        "name": "나선철근비",
+        "description": "나선철근 기둥의 심부 구속에 필요한 철근의 체적비입니다.",
+        "equations": {
+            "base": "ps",
+            "ps": "ps = 0.45 * (Ag/Ac - 1) * (fck/fy)"
+        },
+        "variables": [
+            { "symbol": "ps", "description": "나선철근비", "unit": "" },
+            { "symbol": "Ag", "description": "기둥 총 단면적", "unit": "mm²" },
+            { "symbol": "Ac", "description": "심부 단면적", "unit": "mm²" },
+            { "symbol": "fck", "description": "콘크리트 압축강도", "unit": "MPa" },
+            { "symbol": "fy", "description": "나선철근 항복강도", "unit": "MPa" }
+        ]
+    },
+    {
+        "id": "RCSTEEL-008",
+        "name": "리벳 강도 (전단)",
+        "description": "리벳이 전단 파괴에 대해 저항할 수 있는 강도입니다.",
+        "equations": {
+            "base": "Ps",
+            "Ps": "Ps = tau_a * A"
+        },
+        "variables": [
+            { "symbol": "Ps", "description": "전단강도", "unit": "N" },
+            { "symbol": "tau_a", "description": "허용 전단응력", "unit": "MPa" },
+            { "symbol": "A", "description": "리벳 단면적", "unit": "mm²" }
+        ]
+    },
+    {
+        "id": "RCSTEEL-009",
+        "name": "리벳 강도 (지압)",
+        "description": "리벳이 판재를 누르는 힘에 저항하는 강도입니다.",
+        "equations": {
+            "base": "Pb",
+            "Pb": "Pb = sigma_b * d * t"
+        },
+        "variables": [
+            { "symbol": "Pb", "description": "지압강도", "unit": "N" },
+            { "symbol": "sigma_b", "description": "허용 지압응력", "unit": "MPa" },
+            { "symbol": "d", "description": "리벳 직경", "unit": "mm" },
+            { "symbol": "t", "description": "판 두께", "unit": "mm" }
+        ]
+    },
+    {
+        "id": "RCSTEEL-010",
+        "name": "충격계수",
+        "description": "활하중에 의한 충격 효과를 고려하기 위한 계수입니다.",
+        "equations": {
+            "base": "i",
+            "i": "i = 20 / (50 + L)"
+        },
+        "variables": [
+            { "symbol": "i", "description": "충격계수", "unit": "" },
+            { "symbol": "L", "description": "부재 길이", "unit": "m" }
+        ]
+    }
+]

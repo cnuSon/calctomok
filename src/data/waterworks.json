@@ -1,0 +1,12 @@
+[
+    { "id": "WATERWORKS-001", "name": "상하수도공학 공식_01", "description": "상하수도공학 첫 번째 공식", "equation": "Pn = P0 * (1+r)^n" },
+    { "id": "WATERWORKS-002", "name": "상하수도공학 공식_02", "description": "상하수도공학 두 번째 공식", "equation": "y = La * (1 - 10^(-k1*t))" },
+    { "id": "WATERWORKS-003", "name": "상하수도공학 공식_03", "description": "상하수도공학 세 번째 공식", "equation": "Cm = (C1*Q1 + C2*Q2) / (Q1+Q2)" },
+    { "id": "WATERWORKS-004", "name": "상하수도공학 공식_04", "description": "상하수도공학 네 번째 공식", "equation": "V = 0.35464 * C * D^0.63 * I^0.54" },
+    { "id": "WATERWORKS-005", "name": "상하수도공학 공식_05", "description": "상하수도공학 다섯 번째 공식", "equation": "Vs = (ρs - ρ)*g*d^2 / (18*μ)" },
+    { "id": "WATERWORKS-006", "name": "상하수도공학 공식_06", "description": "상하수도공학 여섯 번째 공식", "equation": "Q = 0.2778 * C * I * A" },
+    { "id": "WATERWORKS-007", "name": "상하수도공학 공식_07", "description": "상하수도공학 일곱 번째 공식", "equation": "W = C * γ * B^2" },
+    { "id": "WATERWORKS-008", "name": "상하수도공학 공식_08", "description": "상하수도공학 여덟 번째 공식", "equation": "F/M = (BOD*Q) / (MLSS*V)" },
+    { "id": "WATERWORKS-009", "name": "상하수도공학 공식_09", "description": "상하수도공학 아홉 번째 공식", "equation": "SVI = SV*10^3 / MLSS" },
+    { "id": "WATERWORKS-010", "name": "상하수도공학 공식_10", "description": "상하수도공학 열 번째 공식", "equation": "P = 9.8*Q*H / n" }
+]

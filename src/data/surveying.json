@@ -1,0 +1,154 @@
+[
+    {
+        "id": "SURV-001",
+        "name": "온도 보정",
+        "description": "측정 시 온도 변화에 따른 거리 오차를 보정합니다.",
+        "equations": {
+            "base": "C",
+            "C": "C = L * alpha * (t - t0)"
+        },
+        "variables": [
+            { "symbol": "C", "description": "온도 보정량", "unit": "m" },
+            { "symbol": "L", "description": "측정 거리", "unit": "m" },
+            { "symbol": "alpha", "description": "선팽창계수", "unit": "/°C" },
+            { "symbol": "t", "description": "측정 시 온도", "unit": "°C" },
+            { "symbol": "t0", "description": "표준 온도", "unit": "°C" }
+        ]
+    },
+    {
+        "id": "SURV-002",
+        "name": "경사 보정",
+        "description": "경사지에서 측정한 거리를 수평 거리로 변환합니다.",
+        "equations": {
+            "base": "C",
+            "C": "C = -h^2 / (2*L)"
+        },
+        "variables": [
+            { "symbol": "C", "description": "경사 보정량", "unit": "m" },
+            { "symbol": "h", "description": "고저차", "unit": "m" },
+            { "symbol": "L", "description": "경사 거리", "unit": "m" }
+        ]
+    },
+    {
+        "id": "SURV-003",
+        "name": "표고 보정",
+        "description": "해발고도에 따른 거리 오차를 보정합니다.",
+        "equations": {
+            "base": "C",
+            "C": "C = -L*H / R"
+        },
+        "variables": [
+            { "symbol": "C", "description": "표고 보정량", "unit": "m" },
+            { "symbol": "L", "description": "측정 거리", "unit": "m" },
+            { "symbol": "H", "description": "평균 해발고도", "unit": "m" },
+            { "symbol": "R", "description": "지구 반지름", "unit": "m" }
+        ]
+    },
+    {
+        "id": "SURV-004",
+        "name": "시거측량 수평거리",
+        "description": "시거측량 시 경사 시준을 통해 수평거리를 계산합니다.",
+        "equations": {
+            "base": "D",
+            "D": "D = K*l*cos(alpha)^2"
+        },
+        "variables": [
+            { "symbol": "D", "description": "수평거리", "unit": "m" },
+            { "symbol": "K", "description": "승상수", "unit": "" },
+            { "symbol": "l", "description": "협장", "unit": "m" },
+            { "symbol": "alpha", "description": "고저각", "unit": "deg" }
+        ]
+    },
+    {
+        "id": "SURV-005",
+        "name": "심프슨 제1법칙 (면적)",
+        "description": "주상도의 면적을 계산하는 방법입니다.",
+        "equations": {
+            "base": "A",
+            "A": "A = d/3 * (y0 + yn + 4*y_odd + 2*y_even)"
+        },
+        "variables": [
+            { "symbol": "A", "description": "면적", "unit": "m²" },
+            { "symbol": "d", "description": "등간격", "unit": "m" },
+            { "symbol": "y0", "description": "첫 번째 종거", "unit": "m" },
+            { "symbol": "yn", "description": "마지막 종거", "unit": "m" },
+            { "symbol": "y_odd", "description": "홀수 종거 합", "unit": "m" },
+            { "symbol": "y_even", "description": "짝수 종거 합", "unit": "m" }
+        ]
+    },
+    {
+        "id": "SURV-006",
+        "name": "접선길이 (노선측량)",
+        "description": "원곡선의 시점에서 교점까지의 거리를 계산합니다.",
+        "equations": {
+            "base": "TL",
+            "TL": "TL = R * tan(I/2)"
+        },
+        "variables": [
+            { "symbol": "TL", "description": "접선길이", "unit": "m" },
+            { "symbol": "R", "description": "곡선반경", "unit": "m" },
+            { "symbol": "I", "description": "교각", "unit": "deg" }
+        ]
+    },
+    {
+        "id": "SURV-007",
+        "name": "캔트",
+        "description": "곡선부에서 원심력에 저항하기 위한 궤도의 횡단경사입니다.",
+        "equations": {
+            "base": "c",
+            "c": "c = g*S*V^2 / R"
+        },
+        "variables": [
+            { "symbol": "c", "description": "캔트", "unit": "m" },
+            { "symbol": "g", "description": "궤간", "unit": "m" },
+            { "symbol": "S", "description": "초과 원심가속도", "unit": "m/s²" },
+            { "symbol": "V", "description": "열차 속도", "unit": "m/s" },
+            { "symbol": "R", "description": "곡선반경", "unit": "m" }
+        ]
+    },
+    {
+        "id": "SURV-008",
+        "name": "사진축척",
+        "description": "항공사진의 축척을 계산합니다.",
+        "equations": {
+            "base": "M",
+            "M": "M = f / H"
+        },
+        "variables": [
+            { "symbol": "M", "description": "축척 (1/m)", "unit": "" },
+            { "symbol": "f", "description": "초점거리", "unit": "m" },
+            { "symbol": "H", "description": "촬영고도", "unit": "m" }
+        ]
+    },
+    {
+        "id": "SURV-009",
+        "name": "촬영기선길이",
+        "description": "연속된 두 항공사진의 촬영점 간 거리입니다.",
+        "equations": {
+            "base": "B",
+            "B": "B = m*a * (1 - p/100)"
+        },
+        "variables": [
+            { "symbol": "B", "description": "촬영기선길이", "unit": "m" },
+            { "symbol": "m", "description": "축척분모", "unit": "" },
+            { "symbol": "a", "description": "사진의 가로 길이", "unit": "m" },
+            { "symbol": "p", "description": "종중복도", "unit": "%" }
+        ]
+    },
+    {
+        "id": "SURV-010",
+        "name": "교호 수준측량 고저차",
+        "description": "하천 등 장애물 양단의 고저차를 정밀하게 측정합니다.",
+        "equations": {
+            "base": "h",
+            "h": "h = (a1-b1 + a2-b2) / 2"
+        },
+        "variables": [
+            { "symbol": "h", "description": "고저차", "unit": "m" },
+            { "symbol": "a1", "description": "A점 후시", "unit": "m" },
+            { "symbol": "b1", "description": "B점 전시", "unit": "m" },
+            { "symbol": "a2", "description": "B점 후시", "unit": "m" },
+            { "symbol": "b2", "description": "A점 전시", "unit": "m" }
+        ]
+    }
+]

@@ -1,0 +1,151 @@
+[
+    {
+        "id": "MECH-001",
+        "name": "두 힘의 합성 크기",
+        "description": "두 힘 P1, P2가 각도 α를 이룰 때, 두 힘의 합력 R의 크기를 계산합니다.",
+        "equations": {
+            "base": "R",
+            "R": "R = sqrt(P1^2 + P2^2 + 2*P1*P2*cos(alpha))"
+        },
+        "variables": [
+            { "symbol": "R", "description": "합성 크기", "unit": "N" },
+            { "symbol": "P1", "description": "힘 1", "unit": "N" },
+            { "symbol": "P2", "description": "힘 2", "unit": "N" },
+            { "symbol": "alpha", "description": "두 힘 사이의 각도", "unit": "deg" }
+        ]
+    },
+    {
+        "id": "MECH-002",
+        "name": "수직응력",
+        "description": "단면에 수직으로 작용하는 힘에 의한 응력입니다.",
+        "equations": {
+            "base": "sigma",
+            "sigma": "sigma = P / A"
+        },
+        "variables": [
+            { "symbol": "sigma", "description": "수직응력", "unit": "Pa" },
+            { "symbol": "P", "description": "수직력", "unit": "N" },
+            { "symbol": "A", "description": "단면적", "unit": "m²" }
+        ]
+    },
+    {
+        "id": "MECH-003",
+        "name": "모멘트",
+        "description": "힘이 물체를 회전시키는 경향을 나타내는 물리량입니다.",
+        "equations": {
+            "base": "M",
+            "M": "M = F * d"
+        },
+        "variables": [
+            { "symbol": "M", "description": "모멘트", "unit": "N·m" },
+            { "symbol": "F", "description": "힘", "unit": "N" },
+            { "symbol": "d", "description": "거리", "unit": "m" }
+        ]
+    },
+    {
+        "id": "MECH-004",
+        "name": "단면 2차 모멘트 (직사각형)",
+        "description": "직사각형 단면의 휨에 대한 저항을 나타냅니다.",
+        "equations": {
+            "base": "I",
+            "I": "I = (b*h^3) / 12"
+        },
+        "variables": [
+            { "symbol": "I", "description": "단면 2차 모멘트", "unit": "m⁴" },
+            { "symbol": "b", "description": "폭", "unit": "m" },
+            { "symbol": "h", "description": "높이", "unit": "m" }
+        ]
+    },
+    {
+        "id": "MECH-005",
+        "name": "전단응력 (보)",
+        "description": "보의 단면에 작용하는 전단력에 의한 응력입니다.",
+        "equations": {
+            "base": "tau",
+            "tau": "tau = V*Q / (I*b)"
+        },
+        "variables": [
+            { "symbol": "tau", "description": "전단응력", "unit": "Pa" },
+            { "symbol": "V", "description": "전단력", "unit": "N" },
+            { "symbol": "Q", "description": "단면 1차 모멘트", "unit": "m³" },
+            { "symbol": "I", "description": "단면 2차 모멘트", "unit": "m⁴" },
+            { "symbol": "b", "description": "폭", "unit": "m" }
+        ]
+    },
+    {
+        "id": "MECH-006",
+        "name": "축방향 변형량",
+        "description": "축방향 하중을 받는 부재의 길이 변화량입니다.",
+        "equations": {
+            "base": "delta",
+            "delta": "delta = P*L / (A*El)"
+        },
+        "variables": [
+            { "symbol": "delta", "description": "변형량", "unit": "m" },
+            { "symbol": "P", "description": "하중", "unit": "N" },
+            { "symbol": "L", "description": "부재 길이", "unit": "m" },
+            { "symbol": "A", "description": "단면적", "unit": "m²" },
+            { "symbol": "El", "description": "탄성계수", "unit": "Pa" }
+        ]
+    },
+    {
+        "id": "MECH-007",
+        "name": "오일러 좌굴하중",
+        "description": "이상적인 기둥이 좌굴을 일으키는 임계 하중입니다.",
+        "equations": {
+            "base": "Pcr",
+            "Pcr": "Pcr = (pi^2*E*I) / L^2"
+        },
+        "variables": [
+            { "symbol": "Pcr", "description": "좌굴하중", "unit": "N" },
+            { "symbol": "E", "description": "탄성계수", "unit": "Pa" },
+            { "symbol": "I", "description": "최소 단면 2차 모멘트", "unit": "m⁴" },
+            { "symbol": "L", "description": "유효 좌굴 길이", "unit": "m" }
+        ]
+    },
+    {
+        "id": "MECH-008",
+        "name": "탄성 변형에너지 (축력)",
+        "description": "축력을 받는 부재에 저장되는 변형에너지입니다.",
+        "equations": {
+            "base": "U",
+            "U": "U = (P^2*L) / (2*A*E)"
+        },
+        "variables": [
+            { "symbol": "U", "description": "변형에너지", "unit": "J" },
+            { "symbol": "P", "description": "하중", "unit": "N" },
+            { "symbol": "L", "description": "부재 길이", "unit": "m" },
+            { "symbol": "A", "description": "단면적", "unit": "m²" },
+            { "symbol": "E", "description": "탄성계수", "unit": "Pa" }
+        ]
+    },
+    {
+        "id": "MECH-009",
+        "name": "최대 휨응력",
+        "description": "보의 단면에서 발생하는 최대 휨응력입니다.",
+        "equations": {
+            "base": "sigma_max",
+            "sigma_max": "sigma_max = M*c / I"
+        },
+        "variables": [
+            { "symbol": "sigma_max", "description": "최대 휨응력", "unit": "Pa" },
+            { "symbol": "M", "description": "최대 휨모멘트", "unit": "N·m" },
+            { "symbol": "c", "description": "중립축에서 가장 먼 거리", "unit": "m" },
+            { "symbol": "I", "description": "단면 2차 모멘트", "unit": "m⁴" }
+        ]
+    },
+    {
+        "id": "MECH-010",
+        "name": "탄성계수 관계",
+        "description": "탄성계수, 전단탄성계수, 푸아송비의 관계식입니다.",
+        "equations": {
+            "base": "E",
+            "E": "E = 2*G*(1+v)"
+        },
+        "variables": [
+            { "symbol": "E", "description": "탄성계수", "unit": "Pa" },
+            { "symbol": "G", "description": "전단탄성계수", "unit": "Pa" },
+            { "symbol": "v", "description": "푸아송비", "unit": "" }
+        ]
+    }
+]

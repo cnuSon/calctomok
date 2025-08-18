@@ -1,0 +1,280 @@
+/* --- 기본 레이아웃 스타일 --- */
+.list-view__wrap {
+    display: flex;
+    padding: 2rem;
+    gap: 2rem;
+    flex: 1; /* 이 부분이 중요합니다. 남는 공간을 모두 채우도록 설정 */
+    background-color: var(--bg-color);
+
+    .list-view__aside {
+        flex: 0 0 280px;
+        background-color: var(--bg-color-secondary);
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .list-view__main {
+        flex: 1;
+        overflow-y: auto; // 콘텐츠가 길어지면 스크롤
+    }
+}
+
+.sidebar {
+    &__title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid var(--border-color);
+        color: var(--text-color); // 텍스트 색상 추가
+    }
+
+    &__nav {
+        ul { list-style: none; padding: 0; margin: 0; }
+        li { margin-bottom: 0.5rem; }
+        a {
+            display: block;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            color: var(--text-color-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.2s, color 0.2s;
+
+            &:hover { background-color: var(--border-color); }
+            &.active {
+                background-color: var(--main-color);
+                color: #fff;
+                font-weight: 700;
+            }
+        }
+    }
+
+    &__search {
+        margin-top: 2rem;
+        input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            background-color: var(--bg-color);
+
+            &:focus {
+                outline: none;
+                border-color: var(--main-color);
+                box-shadow: 0 0 0 2px rgba(0, 90, 156, 0.25);
+            }
+        }
+    }
+}
+
+/* --- 중첩 레이아웃 스타일 --- */
+.nested-layout {
+    display: flex;
+    gap: 1.5rem;
+    height: 100%;
+
+    &__sidebar {
+        flex: 0 0 300px;
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 1.5rem;
+        overflow-y: auto;
+        background-color: var(--bg-color-secondary);
+    }
+
+    &__main {
+        flex: 1;
+        padding: 2rem;
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        background-color: var(--bg-color-secondary);
+    }
+}
+
+.nested-sidebar {
+    &__title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid var(--border-color);
+        color: var(--text-color); // 텍스트 색상 추가
+    }
+
+    &__list {
+        list-style: none; padding: 0; margin: 0;
+        li a {
+            display: block;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            color: var(--text-color-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: background-color 0.2s;
+
+            &:hover { background-color: var(--bg-color); }
+            &.active {
+                background-color: #e9ecef;
+                font-weight: 600;
+                color: var(--main-color);
+            }
+        }
+        .no-results {
+        padding: 1rem;
+        text-align: center;
+        color: var(--text-color-light);
+        font-style: italic;
+    }
+    }
+}
+
+/* --- 공식 상세 페이지 스타일 --- */
+.formula-detail-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 1.2rem;
+    color: #adb5bd;
+}
+
+.formula-detail {
+    &__title {
+        font-size: 2.2rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        color: var(--text-color); // 텍스트 색상 추가
+    }
+
+    &__equation-box {
+        background-color: var(--bg-color);
+        padding: 2rem;
+        border-radius: 12px;
+        margin-bottom: 2rem;
+        
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.5rem;
+            color: var(--text-color);
+        }
+    }
+
+    &__description {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: var(--text-color-light);
+    }
+}
+
+/* --- 계산기 스타일 --- */
+.calculator {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+
+    &__title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        color: var(--text-color);
+    }
+
+    &__control {
+        margin-bottom: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        label {
+            font-weight: 500;
+        }
+
+        select {
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            font-size: 1rem;
+        }
+    }
+
+    &__inputs {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .input-group {
+        display: flex;
+        flex-direction: column;
+
+        label {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-color-light);
+        }
+
+        input {
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            background-color: var(--bg-color);
+
+            &:focus {
+                outline: none;
+                border-color: var(--main-color);
+                box-shadow: 0 0 0 2px rgba(0, 90, 156, 0.25);
+            }
+        }
+    }
+
+    &__actions {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2rem;
+
+        button {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .calc-button {
+            background-color: var(--main-color);
+            color: #fff;
+            &:hover { background-color: var(--main-color-hover); }
+        }
+
+        .reset-button {
+            background-color: #f1f3f5;
+            color: var(--text-color);
+            &:hover { background-color: #e9ecef; }
+        }
+    }
+
+    &__result {
+        background-color: #e7f5ff;
+        border: 1px solid #a5d8ff;
+        border-radius: 8px;
+        padding: 1.5rem;
+
+        h3 {
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+        }
+
+        p {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--main-color);
+        }
+    }
+}

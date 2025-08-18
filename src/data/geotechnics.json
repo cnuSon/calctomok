@@ -1,0 +1,144 @@
+[
+    {
+        "id": "GEOTECHNICS-001",
+        "name": "간극비와 간극률의 관계",
+        "description": "흙의 간극비와 간극률 사이의 관계식입니다.",
+        "equations": {
+            "base": "e",
+            "e": "e = n / (1-n)",
+            "n": "n = e / (1+e)"
+        },
+        "variables": [
+            { "symbol": "e", "description": "간극비", "unit": "" },
+            { "symbol": "n", "description": "간극률", "unit": "" }
+        ]
+    },
+    {
+        "id": "GEOTECHNICS-002",
+        "name": "포화도-함수비 관계",
+        "description": "흙의 포화도, 간극비, 함수비, 흙 입자 비중의 관계입니다.",
+        "equations": {
+            "base": "S",
+            "S": "S = w*Gs / e"
+        },
+        "variables": [
+            { "symbol": "S", "description": "포화도", "unit": "%" },
+            { "symbol": "w", "description": "함수비", "unit": "%" },
+            { "symbol": "Gs", "description": "흙 입자 비중", "unit": "" },
+            { "symbol": "e", "description": "간극비", "unit": "" }
+        ]
+    },
+    {
+        "id": "GEOTECHNICS-003",
+        "name": "건조 단위중량",
+        "description": "흙의 전체 단위중량과 함수비를 이용해 건조 단위중량을 구합니다.",
+        "equations": {
+            "base": "gamma_d",
+            "gamma_d": "gamma_d = gamma_t / (1+w)"
+        },
+        "variables": [
+            { "symbol": "gamma_d", "description": "건조 단위중량", "unit": "kN/m³" },
+            { "symbol": "gamma_t", "description": "습윤 단위중량", "unit": "kN/m³" },
+            { "symbol": "w", "description": "함수비", "unit": "" }
+        ]
+    },
+    {
+        "id": "GEOTECHNICS-004",
+        "name": "소성지수",
+        "description": "흙이 소성 상태로 존재할 수 있는 함수비의 범위입니다.",
+        "equations": {
+            "base": "PI",
+            "PI": "PI = LL - PL"
+        },
+        "variables": [
+            { "symbol": "PI", "description": "소성지수", "unit": "%" },
+            { "symbol": "LL", "description": "액성한계", "unit": "%" },
+            { "symbol": "PL", "description": "소성한계", "unit": "%" }
+        ]
+    },
+    {
+        "id": "GEOTECHNICS-005",
+        "name": "균등계수",
+        "description": "흙 입자의 입도분포 균일성을 나타내는 지수입니다.",
+        "equations": {
+            "base": "Cu",
+            "Cu": "Cu = D60 / D10"
+        },
+        "variables": [
+            { "symbol": "Cu", "description": "균등계수", "unit": "" },
+            { "symbol": "D60", "description": "통과중량 백분율 60% 입경", "unit": "mm" },
+            { "symbol": "D10", "description": "유효입경", "unit": "mm" }
+        ]
+    },
+    {
+        "id": "GEOTECHNICS-006",
+        "name": "유효응력",
+        "description": "흙 입자 사이에 작용하는 실제 응력입니다.",
+        "equations": {
+            "base": "sigma_prime",
+            "sigma_prime": "sigma_prime = sigma - u"
+        },
+        "variables": [
+            { "symbol": "sigma_prime", "description": "유효응력", "unit": "kPa" },
+            { "symbol": "sigma", "description": "전응력", "unit": "kPa" },
+            { "symbol": "u", "description": "간극수압", "unit": "kPa" }
+        ]
+    },
+    {
+        "id": "GEOTECHNICS-007",
+        "name": "시간계수 (압밀)",
+        "description": "압밀 진행 정도를 시간과 관련시키는 무차원수입니다.",
+        "equations": {
+            "base": "Tv",
+            "Tv": "Tv = Cv*t / H^2"
+        },
+        "variables": [
+            { "symbol": "Tv", "description": "시간계수", "unit": "" },
+            { "symbol": "Cv", "description": "압밀계수", "unit": "cm²/s" },
+            { "symbol": "t", "description": "압밀 시간", "unit": "s" },
+            { "symbol": "H", "description": "최대 배수거리", "unit": "cm" }
+        ]
+    },
+    {
+        "id": "GEOTECHNICS-008",
+        "name": "Mohr-Coulomb 파괴이론",
+        "description": "흙의 전단강도를 나타내는 이론입니다.",
+        "equations": {
+            "base": "tau",
+            "tau": "tau = c + sigma*tan(phi)"
+        },
+        "variables": [
+            { "symbol": "tau", "description": "전단강도", "unit": "kPa" },
+            { "symbol": "c", "description": "점착력", "unit": "kPa" },
+            { "symbol": "sigma", "description": "수직응력", "unit": "kPa" },
+            { "symbol": "phi", "description": "내부마찰각", "unit": "deg" }
+        ]
+    },
+    {
+        "id": "GEOTECHNICS-009",
+        "name": "주동 토압계수 (Rankine)",
+        "description": "옹벽이 뒤채움 흙으로부터 멀어질 때 발생하는 토압의 계수입니다.",
+        "equations": {
+            "base": "KA",
+            "KA": "KA = tan(45 - phi/2)^2"
+        },
+        "variables": [
+            { "symbol": "KA", "description": "주동 토압계수", "unit": "" },
+            { "symbol": "phi", "description": "흙의 내부마찰각", "unit": "deg" }
+        ]
+    },
+    {
+        "id": "GEOTECHNICS-010",
+        "name": "무한사면 안전율 (건조)",
+        "description": "건조한 무한사면의 안정성을 평가합니다.",
+        "equations": {
+            "base": "FS",
+            "FS": "FS = tan(phi) / tan(i)"
+        },
+        "variables": [
+            { "symbol": "FS", "description": "안전율", "unit": "" },
+            { "symbol": "phi", "description": "내부마찰각", "unit": "deg" },
+            { "symbol": "i", "description": "사면 경사각", "unit": "deg" }
+        ]
+    }
+]

@@ -1,0 +1,154 @@
+[
+    {
+        "id": "FLUIDS-001",
+        "name": "단위중량",
+        "description": "유체의 단위 부피당 무게입니다.",
+        "equations": {
+            "base": "w",
+            "w": "w = rho * g"
+        },
+        "variables": [
+            { "symbol": "w", "description": "단위중량", "unit": "N/m³" },
+            { "symbol": "rho", "description": "밀도", "unit": "kg/m³" },
+            { "symbol": "g", "description": "중력가속도", "unit": "m/s²" }
+        ]
+    },
+    {
+        "id": "FLUIDS-002",
+        "name": "전수압 (연직평면)",
+        "description": "연직 평면에 작용하는 정수압의 합력입니다.",
+        "equations": {
+            "base": "P",
+            "P": "P = w * hG * A"
+        },
+        "variables": [
+            { "symbol": "P", "description": "전수압", "unit": "N" },
+            { "symbol": "w", "description": "물의 단위중량", "unit": "N/m³" },
+            { "symbol": "hG", "description": "도심까지의 수심", "unit": "m" },
+            { "symbol": "A", "description": "단면적", "unit": "m²" }
+        ]
+    },
+    {
+        "id": "FLUIDS-003",
+        "name": "레이놀즈수",
+        "description": "유체의 흐름이 층류인지 난류인지 구분하는 무차원수입니다.",
+        "equations": {
+            "base": "Re",
+            "Re": "Re = V*D / v"
+        },
+        "variables": [
+            { "symbol": "Re", "description": "레이놀즈수", "unit": "" },
+            { "symbol": "V", "description": "평균 유속", "unit": "m/s" },
+            { "symbol": "D", "description": "관 직경", "unit": "m" },
+            { "symbol": "v", "description": "동점성계수", "unit": "m²/s" }
+        ]
+    },
+    {
+        "id": "FLUIDS-004",
+        "name": "연속 방정식",
+        "description": "질량 보존 법칙에 따라 관내 유량은 일정합니다.",
+        "equations": {
+            "base": "Q",
+            "Q": "Q = A * V"
+        },
+        "variables": [
+            { "symbol": "Q", "description": "유량", "unit": "m³/s" },
+            { "symbol": "A", "description": "단면적", "unit": "m²" },
+            { "symbol": "V", "description": "평균 유속", "unit": "m/s" }
+        ]
+    },
+    {
+        "id": "FLUIDS-005",
+        "name": "Chezy 공식",
+        "description": "개수로 흐름의 평균 유속을 계산하는 공식입니다.",
+        "equations": {
+            "base": "V",
+            "V": "V = C * sqrt(R*I)"
+        },
+        "variables": [
+            { "symbol": "V", "description": "평균 유속", "unit": "m/s" },
+            { "symbol": "C", "description": "평균 유속 계수", "unit": "" },
+            { "symbol": "R", "description": "경심", "unit": "m" },
+            { "symbol": "I", "description": "동수 경사", "unit": "" }
+        ]
+    },
+    {
+        "id": "FLUIDS-006",
+        "name": "Manning 공식",
+        "description": "개수로 흐름의 평균 유속을 계산하는 경험식입니다.",
+        "equations": {
+            "base": "V",
+            "V": "V = (1/n) * R^(2/3) * I^(1/2)",
+            "n": "n = (1/V) * R^(2/3) * I^(1/2)",
+            "R": "R = (V * n / I^(1/2))^(3/2)",
+            "I": "I = (V * n / R^(2/3))^2"
+        },
+        "variables": [
+            { "symbol": "V", "description": "평균 유속", "unit": "m/s" },
+            { "symbol": "n", "description": "조도 계수", "unit": "" },
+            { "symbol": "R", "description": "경심", "unit": "m" },
+            { "symbol": "I", "description": "동수 경사", "unit": "" }
+        ]
+    },
+    {
+        "id": "FLUIDS-007",
+        "name": "마찰손실수두 (Darcy-Weisbach)",
+        "description": "관수로에서 마찰로 인해 발생하는 에너지 손실입니다.",
+        "equations": {
+            "base": "hL",
+            "hL": "hL = f * (l/D) * (V^2 / (2*g))"
+        },
+        "variables": [
+            { "symbol": "hL", "description": "마찰손실수두", "unit": "m" },
+            { "symbol": "f", "description": "마찰손실계수", "unit": "" },
+            { "symbol": "l", "description": "관 길이", "unit": "m" },
+            { "symbol": "D", "description": "관 직경", "unit": "m" },
+            { "symbol": "V", "description": "평균 유속", "unit": "m/s" },
+            { "symbol": "g", "description": "중력가속도", "unit": "m/s²" }
+        ]
+    },
+    {
+        "id": "FLUIDS-008",
+        "name": "프루드수",
+        "description": "개수로 흐름이 상류인지 사류인지 구분하는 무차원수입니다.",
+        "equations": {
+            "base": "Fr",
+            "Fr": "Fr = V / sqrt(g*h)"
+        },
+        "variables": [
+            { "symbol": "Fr", "description": "프루드수", "unit": "" },
+            { "symbol": "V", "description": "평균 유속", "unit": "m/s" },
+            { "symbol": "g", "description": "중력가속도", "unit": "m/s²" },
+            { "symbol": "h", "description": "수심", "unit": "m" }
+        ]
+    },
+    {
+        "id": "FLUIDS-009",
+        "name": "Darcy의 법칙 (지하수)",
+        "description": "다공성 매체를 통과하는 유체의 흐름을 설명합니다.",
+        "equations": {
+            "base": "V",
+            "V": "V = K * I"
+        },
+        "variables": [
+            { "symbol": "V", "description": "유출 속도", "unit": "m/s" },
+            { "symbol": "K", "description": "투수계수", "unit": "m/s" },
+            { "symbol": "I", "description": "동수 경사", "unit": "" }
+        ]
+    },
+    {
+        "id": "FLUIDS-010",
+        "name": "합리식 (유량)",
+        "description": "소규모 유역의 최대 홍수 유출량을 추정하는 방법입니다.",
+        "equations": {
+            "base": "Q",
+            "Q": "Q = 0.2778 * C * I * A"
+        },
+        "variables": [
+            { "symbol": "Q", "description": "최대 유출량", "unit": "m³/s" },
+            { "symbol": "C", "description": "유출계수", "unit": "" },
+            { "symbol": "I", "description": "강우강도", "unit": "mm/hr" },
+            { "symbol": "A", "description": "유역면적", "unit": "km²" }
+        ]
+    }
+]

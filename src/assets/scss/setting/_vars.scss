@@ -17,6 +17,21 @@
     
     --red: #f00;
 
+    // Colors
+    --main-color: #005A9C;         // 메인 컬러 (신뢰감 있는 딥 블루)
+    --main-color-hover: #004B82;   // 메인 컬러 호버 (더 진한 블루)
+    
+    --bg-color: #F8F9FA;           // 전체 배경 (눈이 편안한 라이트 그레이)
+    --bg-color-secondary: #FFFFFF; // 카드 등 보조 배경 (깨끗한 화이트)
+    
+    --text-color: #212529;         // 기본 텍스트 (가독성 좋은 다크 그레이)
+    --text-color-light: #6C757D;   // 보조 텍스트 (부드러운 그레이)
+    
+    --border-color: #E9ECEF;       // 테두리 및 구분선 (옅은 그레이)
+
+    // Layout
+    --footer-height: 140px;
+
     // 폰트 셋팅
     font-family: var(--mainfont-pretendard);
     font-size: 16px;
@@ -30,6 +45,9 @@
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
   
+    
+    
+
     @media (max-width: 800px) {
         font-size: 14px;
         line-height: 1.4;

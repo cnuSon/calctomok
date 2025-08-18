@@ -1,45 +1,31 @@
-import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import React, { Suspense, lazy } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import Home from './pages/Home'
-import Today from './pages/Today'
-import Developer from './pages/Developer'
-import Webd from './pages/Webd'
-import Website from './pages/Website'
-import Gsap from './pages/Gsap'
-import Port from './pages/Port'
-import Youtube from './pages/Youtube'
-import Channel from './pages/Channel'
-import Video from './pages/Video'
-import Search from './pages/Search'
-import Not from './pages/Not'
-import Header from './components/section/Header'
-import Main from './components/section/Main'
-import Footer from './components/section/Footer'
+// 통합된 ListPage와 나머지 페이지만 import 합니다.
+const ListPage = lazy(() => import('./pages/ListPage'));
+const FormulaDetail = lazy(() => import('./pages/FormulaDetail'));
+const Not = lazy(() => import('./pages/Not'));
 
 const App = () => {
     return (
         <BrowserRouter>
-        <Header />
-            <Main>
+            {/* 2. fallback을 간단한 로딩 메시지로 변경합니다. */}
+            <Suspense fallback={<div className="loading">Loading...</div>}>
                 <Routes>
-                    <Route path='/' element={<Home/>} />
-                    <Route path='/today' element={<Today/>} />
-                    <Route path='/developer' element={<Developer/>} />
-                    <Route path='/webd' element={<Webd/>} />
-                    <Route path='/website' element={<Website/>} />
-                    <Route path='/gsap' element={<Gsap/>} />
-                    <Route path='/port' element={<Port/>} />
-                    <Route path='/youtube' element={<Youtube/>} />                
-                    <Route path='/channel/:channelID' element={<Channel/>} />
-                    <Route path='/video/:videoID' element={<Video/>} />
-                    <Route path='/search/:searchID' element={<Search/>} />
-                    <Route path='/*' element={<Not/>} />
+                    {/* 홈페이지 라우트 */}
+                    <Route path='/' element={<ListPage />} />
+
+                    {/* 카테고리 및 상세 페이지 라우트 */}
+                    <Route path='/category/:categoryId' element={<ListPage />}>
+                        <Route index element={<FormulaDetail />} />
+                        <Route path=':formulaId' element={<FormulaDetail />} />
+                    </Route>
+
+                    <Route path='*' element={<Not />} />
                 </Routes>
-            </Main>
-            <Footer />
+            </Suspense>
         </BrowserRouter>
-    )
+    );
 }
 
-export default App
+export default App;
